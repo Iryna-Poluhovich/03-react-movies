@@ -9,6 +9,7 @@ import MovieModal from "../MovieModal/MovieModal";
 
 import { fetchMovies } from "../../services/movieService";
 import type { Movie } from "../../types/movie";
+import css from "./App.module.css"
 
 export default function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -43,7 +44,7 @@ export default function App() {
   };
 
   return (
-    <>
+    <div className={css.app}>
       <SearchBar onSubmit={handleSearch} />
 
       {loading && <Loader />}
@@ -57,6 +58,6 @@ export default function App() {
       )}
 
       <Toaster position="top-right" reverseOrder={false} />
-    </>
+    </div>
   );
 }
